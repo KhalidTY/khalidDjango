@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block replaceMe %}
+
+	<div style="color:blue">
+    	<h3>Assignment 8 - Least and Greatest Common Divisors of Two numbers. App run by {{ request.user }}.</h3>
+    </div>
+	<div>
+		<ul>
+			{% for eachItem in result %}
+				{% if "Therefore" in eachItem or "question" in eachItem or "only" in eachItem or "don't" in eachItem %}
+					<div style="color:blue"><strong style="font-size:17px">{{ eachItem }}</strong><br></div>
+				{% else %}
+					{{ eachItem }}<br>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	</div>
+
+{% endblock replaceMe %}

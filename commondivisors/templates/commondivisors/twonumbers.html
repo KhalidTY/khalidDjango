@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block replaceMe %}
+
+	<div style="color:blue">
+    	<h3>Assignment 8 - Least and Greatest Common Divisors of Two numbers being inquired by {{ request.user }}</h3>
+    </div>
+	<div>
+		<form method="POST">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<input type="submit" value="Solve">
+		</form>
+	</div>
+
+{% endblock replaceMe %}
