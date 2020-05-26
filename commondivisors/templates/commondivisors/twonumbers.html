@@ -2,15 +2,17 @@
 
 {% block replaceMe %}
 
-	<div style="color:blue">
-    	<h3>Assignment 8 - Least and Greatest Common Divisors of Two numbers being inquired by {{ request.user }}</h3>
+	<div>
+    	<h4>Assignment 8 - Least and Greatest Common Divisors of Two numbers being inquired by {{ request.user }}</h4>
     </div>
 	<div>
 		<form method="POST">
 			{% csrf_token %}
 			{{ form.as_p }}
-			<input type="submit" value="Solve">
+			<input type="submit" value="Solve" class = "btn btn-primary">
 		</form>
 	</div>
-
+	<br>
+	<a href="{% url 'home' %}" class="btn btn-primary">Home</a>
+	<br>
 {% endblock replaceMe %}

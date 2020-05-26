@@ -2,19 +2,21 @@
 
 {% block replaceMe %}
 
-	<div style="color:blue">
-    	<h3>Assignment 8 - Least and Greatest Common Divisors of Two numbers. App run by {{ request.user }}.</h3>
+	<div>
+    	<h4>Assignment 8 - Least and Greatest Common Divisors of Two numbers. App run by {{ request.user }}.</h4>
     </div>
 	<div>
 		<ul>
 			{% for eachItem in result %}
 				{% if "Therefore" in eachItem or "question" in eachItem or "only" in eachItem or "don't" in eachItem %}
-					<div style="color:blue"><strong style="font-size:17px">{{ eachItem }}</strong><br></div>
+					<h4 class="alert alert-success">{{ eachItem }}</h4>
 				{% else %}
-					{{ eachItem }}<br>
+					<h4><li>{{ eachItem }}</li></h4>
 				{% endif %}
 			{% endfor %}
 		</ul>
 	</div>
+	<br>
+<a href="{% url 'home' %}" class="btn btn-primary">Home</a>
 
 {% endblock replaceMe %}

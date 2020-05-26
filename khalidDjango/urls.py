@@ -17,11 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from pages.views import home_view
 from commondivisors.views import twonumbers_view
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', home_view),
-	path('', home_view),
-	path('find_divisors/', twonumbers_view),
+	path('', home_view, name = 'home'),
+	path('find_divisors/', twonumbers_view, name = 'find_divisors'),
 
 ]

@@ -26,7 +26,8 @@ class TwoNumbersForm(forms.ModelForm):
 	def clean_number1(self, *args, **kwargs):
 		number1_input = self.cleaned_data.get("number1")
 
-		# Ensure number is greater than 2
+		# Ensure number is non-negative
+		# Validation in the model definition enforces numbers greater than 2
 		if int(number1_input) < 3:
 			raise forms.ValidationError("Invalid Number Entered.")
 		return number1_input
@@ -34,7 +35,17 @@ class TwoNumbersForm(forms.ModelForm):
 	def clean_number2(self, *args, **kwargs):
 		number2_input = self.cleaned_data.get("number2")
 
-		# Ensure number is greater than 2
+		# Ensure number is non-negative
+		# Validation in the model definition enforces numbers greater than 2
 		if int(number2_input) < 3:
 			raise forms.ValidationError("Invalid Number Entered.")
 		return number2_input
+
+	def lcd_and_gcd(self, *args, **kwargs):
+		lcd_and_gcd_input = self.cleaned_data.get("lcd_and_gcd")
+		return lcd_and_gcd
+
+	def user(self, *args, **kwargs):
+		user_input = self.cleaned_data.get("user")
+		return user
+	

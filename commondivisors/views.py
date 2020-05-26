@@ -61,33 +61,22 @@ def solve(nums):
 # Create your views here.
 def twonumbers_view(request, *args, **kwargs):
 	numbers_form = TwoNumbersForm(request.POST or None)
-	
-	# good_request = None
-	
 	if numbers_form.is_valid():
-
-		good_request = request
-
 		valid_two_numbers = []
 		valid_two_numbers.append(int(numbers_form.cleaned_data['number1']))
 		valid_two_numbers.append(int(numbers_form.cleaned_data['number2']))
-		
-		# numbers_form = TwoNumbersForm()
-
 		solution = solve(valid_two_numbers)
-		
+		# numbers_form.cleaned_data['lcd_and_gcd'] = solution[-1]
+		# numbers_form.cleaned_data['user'] = request.user
+		numbers_form.initial['lcd_and_gcd'] = solution[-1]
+		numbers_form.initial['user'] = request.user
+		numbers_form.save()		
 		context = {
 			"result": solution
 		}
 		
 		return render(request, "commondivisors/solution.html", context)
 		
-		# numbers_form = TwoNumbersForm()
-
-	# if good_request != None:
-	# 	request = good_request
-	# 	numbers_form = TwoNumbersForm(request.POST)
-
 	context = {
 		"form": numbers_form,
 	}
